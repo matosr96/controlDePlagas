@@ -66,28 +66,155 @@ public class Metodos {
 
         return rs;
     }
-    
-    public int obtenerIdRol(String nombreRol) {
-    int idRol = -1; // Default value if the ID is not found
-    Connection cn = conexion.getConnection();
 
-    String sql = "SELECT ID FROM roles WHERE NOMBRE = ?";
+    public ResultSet consultaInsumoPorNombre(String nombre) {
+        ResultSet rs = null;
+        Connection cn = conexion.getConnection();
 
-    try {
-        PreparedStatement ps = cn.prepareStatement(sql);
-        ps.setString(1, nombreRol);
-        ResultSet rs = ps.executeQuery();
+        String sql = "SELECT * FROM INSUMO WHERE NOMBRE = ?";
 
-        if (rs.next()) {
-            idRol = rs.getInt("ID");
+        if (nombre.equalsIgnoreCase("TODO")) {
+            sql = "SELECT * FROM INSUMO";
+        } else if (!nombre.equalsIgnoreCase("")) {
+            nombre = nombre;
+        } else {
+            return rs;
         }
 
-        rs.close();
-        cn.close();
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, e);
+        try {
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            if (!nombre.equalsIgnoreCase("TODO")) {
+                ps.setString(1, nombre);
+            }
+
+            rs = ps.executeQuery();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        return rs;
     }
 
-    return idRol;
-}
+    public ResultSet consultaPlagaPorNombre(String nombre) {
+        ResultSet rs = null;
+        Connection cn = conexion.getConnection();
+
+        String sql = "SELECT * FROM PLAGAS WHERE NOMBRE = ?";
+
+        if (nombre.equalsIgnoreCase("TODO")) {
+            sql = "SELECT * FROM PLAGAS";
+        } else if (!nombre.equalsIgnoreCase("")) {
+            nombre = nombre;
+        } else {
+            return rs;
+        }
+
+        try {
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            if (!nombre.equalsIgnoreCase("TODO")) {
+                ps.setString(1, nombre);
+            }
+
+            rs = ps.executeQuery();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        return rs;
+    }
+
+    public ResultSet consultaActividadPorUbicacion(String ubicacion) {
+        ResultSet rs = null;
+        Connection cn = conexion.getConnection();
+
+        String sql = "SELECT * FROM ACTIVIDAD WHERE UBICACION = ?";
+
+        if (ubicacion.equalsIgnoreCase("TODO")) {
+            sql = "SELECT * FROM ACTIVIDAD";
+        } else if (!ubicacion.equalsIgnoreCase("")) {
+            ubicacion = ubicacion;
+        } else {
+            return rs;
+        }
+
+        try {
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            if (!ubicacion.equalsIgnoreCase("TODO")) {
+                ps.setString(1, ubicacion);
+            }
+
+            rs = ps.executeQuery();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        return rs;
+    }
+
+    public int obtenerIdRol(String nombreRol) {
+        int idRol = -1; // Default value if the ID is not found
+        Connection cn = conexion.getConnection();
+
+        String sql = "SELECT ID FROM roles WHERE NOMBRE = ?";
+
+        try {
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ps.setString(1, nombreRol);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                idRol = rs.getInt("ID");
+            }
+
+            rs.close();
+            cn.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        return idRol;
+    }
+
+    public ResultSet consultaInsumos(String Valor) {
+
+        ResultSet rs = null;
+        Connection cn = conexion.getConnection();
+        String id = "";
+
+        String sql = "SELECT * FROM INSUMO WHERE ID = ?";
+
+        if (Valor.equalsIgnoreCase("TODO")) {
+
+            sql = "SELECT * FROM INSUMO";
+
+        } else if (!Valor.equalsIgnoreCase("")) {
+
+            id = (Valor);
+        } else {
+
+            return rs;
+        }
+
+        try {
+
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            if (!Valor.equalsIgnoreCase("TODO")) {
+
+                ps.setString(1, id);
+
+            }
+
+            rs = ps.executeQuery();
+
+        } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        return rs;
+    }
 }
