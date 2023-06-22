@@ -22,5 +22,5 @@ Control de Plagas es una aplicación para gestionar y controlar eficientemente l
 1. Clona el repositorio
 
 ```bash 
-git clone https://github.com/tu-usuario/control-de-plagas.git
+git clone git@github.com:matosr96/controlDePlagas.git
 ```
