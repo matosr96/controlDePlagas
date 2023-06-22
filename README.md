@@ -24,3 +24,8 @@ Control de Plagas es una aplicación para gestionar y controlar eficientemente l
 ```bash 
 git clone git@github.com:matosr96/controlDePlagas.git
 ```
+
+2. Importa el proyecto en tu IDE preferido. (El proyecto fue desarrollado en netbeans 8.2).
+3. Configura la clase conexion con tus credenciales de acceso.
+4. Importa el archivo database.sql en tu servidor MySQL para crear la estructura de la base de datos.
+5. Ejecuta la aplicación desde tu IDE.
