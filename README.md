@@ -10,3 +10,9 @@ Control de Plagas es una aplicación para gestionar y controlar eficientemente l
 - Gestión de insumos y productos químicos para el control de plagas.
 - Registro y seguimiento de plagas y enfermedades por tipo y gravedad.
 - Planificación y programación de actividades de control.
+
+## Requisitos del Sistema
+
+- Java Development Kit (JDK) 8 o superior.
+- MySQL Server 5.7 o superior.
+- NetBeans IDE 8.2 o cualquier otro IDE compatible.
